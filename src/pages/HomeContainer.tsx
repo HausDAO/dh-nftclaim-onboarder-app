@@ -17,7 +17,7 @@ export function HomeContainer() {
   return (
     <DHLayout
       pathname={location.pathname}
-      navLinks={[{ label: "Join", href: `/` }]}
+      navLinks={[{ label: "Home", href: `/` }]}
       leftNav={<H4>{dao?.name}</H4>}
     >
       <TXBuilder
