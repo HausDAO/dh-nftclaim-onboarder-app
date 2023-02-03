@@ -1,22 +1,16 @@
-import { DHLayout } from '@daohaus/connect';
-import { Routes as Router, Route, useLocation } from 'react-router-dom';
-import { FormTest } from './pages/FormTest';
-import { Home } from './pages/Home';
+import { Routes as Router, Route } from "react-router-dom";
+import HomeContainer from "./pages/HomeContainer";
+import { Home } from "./pages/Home";
+import { ClaimShares } from "./pages/ClaimShares";
 
 export const Routes = () => {
-  const { pathname } = useLocation();
   return (
-    <DHLayout
-      pathname={pathname}
-      navLinks={[
-        { label: 'Home', href: '/' },
-        { label: 'Form Test', href: '/formtest' },
-      ]}
-    >
-      <Router>
-        <Route path="/" element={<Home />} />
-        <Route path="/formtest" element={<FormTest />} />
-      </Router>
-    </DHLayout>
+    <Router>
+      <Route path="/" element={<HomeContainer />}>
+        <Route index element={<Home />} />
+        <Route element={<Home />} />
+        <Route path="claim-shares/:nftClaimer" element={<ClaimShares />} />
+      </Route>
+    </Router>
   );
 };

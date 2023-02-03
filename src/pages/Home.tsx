@@ -1,29 +1,112 @@
-import { H2, Link, ParMd, SingleColumnLayout } from '@daohaus/ui';
-import styled from 'styled-components';
-import { HausAnimated } from '../components/HausAnimated';
+import styled from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
+
+import {
+  Bold,
+  border,
+  DataSm,
+  H2,
+  Link,
+  ParLg,
+  ParMd,
+  SingleColumnLayout,
+  Theme,
+} from "@daohaus/ui";
+import { RiArrowRightSLine } from "react-icons/ri/index.js";
+
+import { HausAnimated } from "../components/HausAnimated";
+import { NftClaimer, TARGET_DAO } from "../targetDao";
 
 const LinkBox = styled.div`
   display: flex;
   width: 50%;
   justify-content: space-between;
+  margin-top: 10rem;
+`;
+
+const ListItemContainer = styled.div`
+  width: 100%;
+  padding: 1rem 0;
+  border-top: 1px ${({ theme }: { theme: Theme }) => theme.secondary.step6}
+    solid;
+`;
+
+const ListItemLink = styled(RouterLink)`
+  text-decoration: none;
+  width: 100%;
+  color: unset;
+  :hover {
+    text-decoration: none;
+  }
+`;
+
+const ListItemHoverContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  border-radius: ${border.radius};
+
+  :hover {
+    background: 1px ${({ theme }: { theme: Theme }) => theme.secondary.step3};
+  }
+`;
+
+const ListItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  word-wrap: break-word;
+`;
+
+const StyledIcon = styled(RiArrowRightSLine)`
+  fill: ${({ theme }: { theme: Theme }) => theme.primary.step9};
+  font-size: 3rem;
 `;
 
 export const Home = () => {
   return (
     <SingleColumnLayout>
-      <H2>DAOhaus is your haus</H2>
       <HausAnimated />
-      <ParMd style={{ marginBottom: '2.4rem' }}>
-        Get started by editing src/pages/Home.tsx
+      <H2 style={{ marginBottom: "2.4rem" }}>Join Raid Brood</H2>
+      <ParMd style={{ marginBottom: "2.4rem" }}>
+        If you hold the any of these NFTs you can can claim shares in the Raid
+        Brood DAO.
       </ParMd>
+
+      {TARGET_DAO[import.meta.env.VITE_TARGET_KEY].NFT_CLAMIERS.map(
+        (claimer: NftClaimer, i: number) => {
+          return (
+            <ListItemContainer key={claimer.shaman}>
+              <ListItemLink to={`/claim-shares/${claimer.shaman}`}>
+                <ListItemHoverContainer>
+                  <ListItem>
+                    <ParLg>
+                      <Bold>{claimer.name}</Bold>
+                    </ParLg>
+                    <DataSm>Description and maybe an image here</DataSm>
+                  </ListItem>
+                  <StyledIcon />
+                </ListItemHoverContainer>
+              </ListItemLink>
+            </ListItemContainer>
+          );
+        }
+      )}
+
       <LinkBox>
-        <Link href="https://github.com/HausDAO/monorepo" linkType="external">
-          Github
+        <Link href="https://brood.raidguild.org/" linkType="external">
+          More Info
         </Link>
-        <Link href="https://admin.daohaus.fun/" linkType="external">
-          Admin
+        <Link
+          href={`https://admin.daohaus.club/#/molochv3/${
+            TARGET_DAO[import.meta.env.VITE_TARGET_KEY].CHAIN_ID
+          }/${TARGET_DAO[import.meta.env.VITE_TARGET_KEY].ADDRESS}`}
+          linkType="external"
+        >
+          Raid Brood DAO
         </Link>
-        <Link href="/formtest">Example Form</Link>
       </LinkBox>
     </SingleColumnLayout>
   );
