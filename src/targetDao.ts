@@ -25,6 +25,18 @@ export const TARGET_DAO: {
           "https://goerli.etherscan.io/address/0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
         shaman: "0xaA5DC030FE06fAd5A2152d430696F66F6B4582f2",
       },
+      {
+        name: "Spork and Sour",
+        nftAddress:
+          "https://goerli.etherscan.io/address/0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
+        shaman: "0xaA5DC030FE06fAd5A2152d430696F66F6B4582f2",
+      },
+      {
+        name: "Green Pil",
+        nftAddress:
+          "https://goerli.etherscan.io/address/0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
+        shaman: "0xaA5DC030FE06fAd5A2152d430696F66F6B4582f2",
+      },
     ],
   },
 };

@@ -63,66 +63,64 @@ export const ClaimShares = () => {
   };
 
   return (
-    <SingleColumnLayout>
-      <CardContainer>
-        <Card width="60rem">
-          <CardContent>
-            <ImageContainer>
-              <div className="img-block">
-                <img src={redPilImage} />
-              </div>
-            </ImageContainer>
-            <H4>1. Drink Red Pil</H4>
+    <CardContainer>
+      <Card width="60rem">
+        <CardContent>
+          <ImageContainer>
+            <div className="img-block">
+              <img src={redPilImage} />
+            </div>
+          </ImageContainer>
+          <H4>1. Drink Red Pil</H4>
+          <ParSm>
+            If the Jamaica Red Ale of a black velvet greedily teaches a soggy
+            Busch, then a keg trembles
+          </ParSm>
+        </CardContent>
+      </Card>
+
+      <Card width="60rem">
+        <CardContent>
+          <ImageContainer>
+            <div className="img-block">
+              <img src={redPilImage} />
+            </div>
+          </ImageContainer>
+          <H4>2. Claim Your Red Pil NFT</H4>
+          <CardGuts>
             <ParSm>
-              If the Jamaica Red Ale of a black velvet greedily teaches a soggy
-              Busch, then a keg trembles
+              When an Amarillo Pale Ale takes a coffee break, an often
+              radioactive Bacardi Silver hides
             </ParSm>
-          </CardContent>
-        </Card>
+            <Link
+              href="https://brood.raidguild.org/redpill"
+              linkType="external"
+            >
+              Claim NFT Here
+            </Link>
+          </CardGuts>
+        </CardContent>
+      </Card>
 
-        <Card width="60rem">
-          <CardContent>
-            <ImageContainer>
-              <div className="img-block">
-                <img src={redPilImage} />
-              </div>
-            </ImageContainer>
-            <H4>2. Claim Your Red Pil NFT</H4>
-            <CardGuts>
-              <ParSm>
-                When an Amarillo Pale Ale takes a coffee break, an often
-                radioactive Bacardi Silver hides
-              </ParSm>
-              <Link
-                href="https://brood.raidguild.org/redpill"
-                linkType="external"
-              >
-                Claim NFT Here
-              </Link>
-            </CardGuts>
-          </CardContent>
-        </Card>
-
-        <Card width="60rem">
-          <CardContent>
-            <ImageContainer>
-              <div className="img-block">
-                <img src={redPilImage} />
-              </div>
-            </ImageContainer>
-            <H4>2. Get Your DAO Shares</H4>
-            <CardGuts>
-              <ParSm>
-                A monkey bite over a chain saw eats a slurly hammered Full Sail
-                IPA
-              </ParSm>
-              <DataSm>You can get 10 shares for your 2 Red Pil Nfts</DataSm>
-              <Claim tokenIds={["4"]} onSuccess={handleSuccess} />
-            </CardGuts>
-          </CardContent>
-        </Card>
-      </CardContainer>
-    </SingleColumnLayout>
+      <Card width="60rem">
+        <CardContent>
+          <ImageContainer>
+            <div className="img-block">
+              <img src={redPilImage} />
+            </div>
+          </ImageContainer>
+          <H4>2. Get Your DAO Shares</H4>
+          <CardGuts>
+            <ParSm>
+              A monkey bite over a chain saw eats a slurly hammered Full Sail
+              IPA
+            </ParSm>
+            <DataSm>You can get 10 shares for your 2 Red Pil Nfts</DataSm>
+            <Claim tokenIds={["4"]} onSuccess={handleSuccess} />
+          </CardGuts>
+        </CardContent>
+      </Card>
+    </CardContainer>
   );
 };
 
