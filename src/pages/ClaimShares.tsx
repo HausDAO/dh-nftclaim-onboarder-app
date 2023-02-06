@@ -57,6 +57,8 @@ const CardGuts = styled.div`
   gap: 3rem;
 `;
 
+const cardWidth = "80rem";
+
 export const ClaimShares = () => {
   const handleSuccess = () => {
     console.log("success");
@@ -64,7 +66,7 @@ export const ClaimShares = () => {
 
   return (
     <CardContainer>
-      <Card width="60rem">
+      <Card width={cardWidth}>
         <CardContent>
           <ImageContainer>
             <div className="img-block">
@@ -79,7 +81,7 @@ export const ClaimShares = () => {
         </CardContent>
       </Card>
 
-      <Card width="60rem">
+      <Card width={cardWidth}>
         <CardContent>
           <ImageContainer>
             <div className="img-block">
@@ -102,7 +104,7 @@ export const ClaimShares = () => {
         </CardContent>
       </Card>
 
-      <Card width="60rem">
+      <Card width={cardWidth}>
         <CardContent>
           <ImageContainer>
             <div className="img-block">
