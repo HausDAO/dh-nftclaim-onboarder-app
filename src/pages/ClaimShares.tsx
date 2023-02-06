@@ -13,6 +13,10 @@ import {
 import styled from "styled-components";
 import { Claim } from "../components/Claim";
 import redPilImage from "../assets/logo_footer_vgaciq.svg";
+import { useDHConnect } from "@daohaus/connect";
+import { useAccountNfts } from "../hooks/useAccountNfts";
+import { TARGET_DAO } from "../targetDao";
+import { useParams } from "react-router-dom";
 
 const ImageContainer = styled.div`
   display: flex;
@@ -59,7 +63,20 @@ const CardGuts = styled.div`
 
 const cardWidth = "80rem";
 
+const CLAIMER_DATA = TARGET_DAO[import.meta.env.VITE_TARGET_KEY].NFT_CLAMIERS;
+
 export const ClaimShares = () => {
+  const { address } = useDHConnect();
+  const { nftClaimer } = useParams();
+
+  const { nfts } = useAccountNfts({
+    nftAddress: nftClaimer && CLAIMER_DATA[nftClaimer].nftAddress,
+    accountAddress: address,
+    shamanAddress: nftClaimer,
+  });
+
+  console.log("nfts", nfts);
+
   const handleSuccess = () => {
     console.log("success");
   };
@@ -117,38 +134,18 @@ export const ClaimShares = () => {
               A monkey bite over a chain saw eats a slurly hammered Full Sail
               IPA
             </ParSm>
-            <DataSm>You can get 10 shares for your 2 Red Pil Nfts</DataSm>
-            <Claim tokenIds={["4"]} onSuccess={handleSuccess} />
+            {nftClaimer && nfts?.length ? (
+              <Claim
+                tokenIds={nfts.map((nft: any) => nft.identifier)}
+                shamanAddress={nftClaimer}
+                onSuccess={handleSuccess}
+              />
+            ) : (
+              <DataSm>You don't hold any nfts</DataSm>
+            )}
           </CardGuts>
         </CardContent>
       </Card>
     </CardContainer>
   );
 };
-
-// useDao
-
-// useClaimer
-// // rpc call to get perNft- *** hard code this for now
-
-// useNftBalance
-// // erc721 subgraph fetch on connected address
-// // has an nft
-// // wrap a rpc call to test nftShaman 'claims' on the token id
-// // list of ids w/ claimed bool
-
-// ui
-// // header image based on nft
-// // headline and text
-// // 3 cards
-// // // beer info
-// // // claim nft link
-// // // claim shares
-
-// claim shares
-// // STATE: if account has unclaimed nfts
-// // display how many shares they can get
-
-// // STATE: nothing to claim
-
-// // STATE: indicate how many nft holding and how many claimed

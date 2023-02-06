@@ -65,6 +65,8 @@ const StyledIcon = styled(RiArrowRightSLine)`
   font-size: 3rem;
 `;
 
+const CLAIMER_DATA = TARGET_DAO[import.meta.env.VITE_TARGET_KEY].NFT_CLAMIERS;
+
 export const Home = () => {
   return (
     <SingleColumnLayout>
@@ -75,25 +77,23 @@ export const Home = () => {
         Brood DAO.
       </ParMd>
 
-      {TARGET_DAO[import.meta.env.VITE_TARGET_KEY].NFT_CLAMIERS.map(
-        (claimer: NftClaimer, i: number) => {
-          return (
-            <ListItemContainer key={claimer.shaman}>
-              <ListItemLink to={`/claim-shares/${claimer.shaman}`}>
-                <ListItemHoverContainer>
-                  <ListItem>
-                    <ParLg>
-                      <Bold>{claimer.name}</Bold>
-                    </ParLg>
-                    <DataSm>Description and maybe an image here</DataSm>
-                  </ListItem>
-                  <StyledIcon />
-                </ListItemHoverContainer>
-              </ListItemLink>
-            </ListItemContainer>
-          );
-        }
-      )}
+      {Object.keys(CLAIMER_DATA).map((key: string, i: number) => {
+        return (
+          <ListItemContainer key={CLAIMER_DATA[key].shaman}>
+            <ListItemLink to={`/claim-shares/${CLAIMER_DATA[key].shaman}`}>
+              <ListItemHoverContainer>
+                <ListItem>
+                  <ParLg>
+                    <Bold>{CLAIMER_DATA[key].name}</Bold>
+                  </ParLg>
+                  <DataSm>Description and maybe an image here</DataSm>
+                </ListItem>
+                <StyledIcon />
+              </ListItemHoverContainer>
+            </ListItemLink>
+          </ListItemContainer>
+        );
+      })}
 
       <LinkBox>
         <Link href="https://brood.raidguild.org/" linkType="external">

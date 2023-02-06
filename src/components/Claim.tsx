@@ -2,20 +2,23 @@ import React from "react";
 import { handleErrorMessage, TXLego } from "@daohaus/utils";
 import { useDHConnect } from "@daohaus/connect";
 import { useTxBuilder } from "@daohaus/tx-builder";
-import { Spinner, useToast } from "@daohaus/ui";
+import { DataSm, Spinner, useToast } from "@daohaus/ui";
 
 import { TX } from "../legos/tx";
 import { useParams } from "react-router-dom";
 import { TARGET_DAO } from "../targetDao";
 import { GatedButton } from "./GatedButton";
+import { useNftClaimStatus } from "../hooks/useAccountNfts";
 
 export const Claim = ({
   onSuccess,
   tokenIds,
+  shamanAddress,
   disabled = false,
 }: {
   onSuccess: () => void;
   tokenIds: string[];
+  shamanAddress: string;
   disabled?: boolean;
 }) => {
   const { fireTransaction } = useTxBuilder();
@@ -24,10 +27,28 @@ export const Claim = ({
   const { errorToast, defaultToast, successToast } = useToast();
   const [isLoading, setIsLoading] = React.useState(false);
 
+  console.log("tokenIds", tokenIds);
+
+  const { claims } = useNftClaimStatus({
+    shamanAddress,
+    tokenIds,
+  });
+
+  console.log("claims", claims);
+
+  const unclaimedIds = tokenIds.reduce((acc: string[], id: string) => {
+    if (claims[id] === "0") {
+      return [...acc, id];
+    }
+    return acc;
+  }, []);
+
+  console.log("unclaimedIds", unclaimedIds);
+
   const handleClaim = () => {
     setIsLoading(true);
     fireTransaction({
-      tx: { ...TX.CLAIM_SHARES, staticArgs: [tokenIds] } as TXLego,
+      tx: { ...TX.CLAIM_SHARES, staticArgs: [unclaimedIds] } as TXLego,
       callerState: { nftClaimer },
       lifeCycleFns: {
         onTxError: (error) => {
@@ -67,18 +88,31 @@ export const Claim = ({
       ? true
       : "You are not connected to the same network as the DAO";
   return (
-    <GatedButton
-      color="primary"
-      rules={[isConnectedToDao]}
-      onClick={handleClaim}
-      disabled={disabled}
-      style={{ padding: "1.2rem" }}
-    >
-      {isLoading ? (
-        <Spinner size="2rem" strokeWidth=".2rem" />
+    <>
+      {unclaimedIds && unclaimedIds.length > 0 ? (
+        <>
+          <DataSm>
+            You can have {unclaimedIds.length} nft
+            {unclaimedIds.length > 1 && "s"} with unclaimed DAO shares
+          </DataSm>
+
+          <GatedButton
+            color="primary"
+            rules={[isConnectedToDao]}
+            onClick={handleClaim}
+            disabled={disabled}
+            style={{ padding: "1.2rem" }}
+          >
+            {isLoading ? (
+              <Spinner size="2rem" strokeWidth=".2rem" />
+            ) : (
+              "Get DAO Shares"
+            )}
+          </GatedButton>
+        </>
       ) : (
-        "Get DAO Shares"
+        <DataSm>Nothing to claim</DataSm>
       )}
-    </GatedButton>
+    </>
   );
 };
