@@ -26,6 +26,7 @@ const getClaimStatus = async ({
 }) => {
   const SharesContract = createContract({
     address: shamanAddress,
+    // @ts-ignore-error
     abi: NFT_CLAIMER_ABI,
     chainId: TARGET_DAO[import.meta.env.VITE_TARGET_KEY].CHAIN_ID,
     rpcs: {
@@ -37,11 +38,7 @@ const getClaimStatus = async ({
     },
   });
 
-  const claimed: string = await SharesContract.claims(tokenId);
-
-  console.log("claimed", claimed);
-
-  return claimed;
+  return await SharesContract.claims(tokenId);
 };
 
 export const useAccountNfts = ({
@@ -53,7 +50,7 @@ export const useAccountNfts = ({
   shamanAddress?: string;
 }) => {
   const { data, ...rest } = useQuery(
-    ["get-tcr-list", { nftAddress, accountAddress }],
+    ["get-nft-list", { nftAddress, accountAddress }],
     () =>
       graphQLClient.request(
         gql`
@@ -92,7 +89,6 @@ export const useNftClaimStatus = ({
   const { data, ...rest } = useQuery(
     ["get-nft-claims", { shamanAddress, tokenIds }],
     () => {
-      console.log("tokenIds", tokenIds);
       return Promise.all(
         tokenIds.map(
           async (tokenId) => await getClaimStatus({ shamanAddress, tokenId })
@@ -101,16 +97,6 @@ export const useNftClaimStatus = ({
     },
     { enabled: !!shamanAddress && !!tokenIds.length }
   );
-
-  // const claims:  = data
-  //   ? tokenIds.reduce((acc, id, i) => {
-  //       const claimed = data[i].toString();
-  //       const newAcc = {
-  //         ...acc,
-  //         [id]: +claimed > 0 ? data[i].toString() : undefined,
-  //       };
-  //       return newAcc;
-  //     }, {})
 
   const claims: { [key: string]: string } = tokenIds.reduce((acc, id, i) => {
     const newAcc = { ...acc, [id]: data ? data[i].toString() : undefined };

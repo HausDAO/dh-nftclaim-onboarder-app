@@ -13,6 +13,8 @@ import {
 import styled from "styled-components";
 import { Claim } from "../components/Claim";
 import redPilImage from "../assets/logo_footer_vgaciq.svg";
+import redPilLogo from "../assets/redpil-logo.png";
+
 import { useDHConnect } from "@daohaus/connect";
 import { useAccountNfts } from "../hooks/useAccountNfts";
 import { TARGET_DAO } from "../targetDao";
@@ -87,7 +89,7 @@ export const ClaimShares = () => {
         <CardContent>
           <ImageContainer>
             <div className="img-block">
-              <img src={redPilImage} />
+              <img src={redPilLogo} />
             </div>
           </ImageContainer>
           <H4>1. Drink Red Pil</H4>
