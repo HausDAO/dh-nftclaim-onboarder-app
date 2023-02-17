@@ -6,7 +6,6 @@ import {
   border,
   DataSm,
   H2,
-  Link,
   ParLg,
   ParMd,
   SingleColumnLayout,
@@ -15,14 +14,8 @@ import {
 import { RiArrowRightSLine } from "react-icons/ri/index.js";
 
 import { HausAnimated } from "../components/HausAnimated";
-import { NftClaimer, TARGET_DAO } from "../targetDao";
-
-const LinkBox = styled.div`
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-  margin-top: 10rem;
-`;
+import { TARGET_DAO } from "../targetDao";
+import { InfoLinks } from "../components/InfoLinks";
 
 const ListItemContainer = styled.div`
   width: 100%;
@@ -86,7 +79,7 @@ export const Home = () => {
                   <ParLg>
                     <Bold>{CLAIMER_DATA[key].name}</Bold>
                   </ParLg>
-                  <DataSm>Description and maybe an image here</DataSm>
+                  <DataSm>{CLAIMER_DATA[key].description}</DataSm>
                 </ListItem>
                 <StyledIcon />
               </ListItemHoverContainer>
@@ -95,19 +88,7 @@ export const Home = () => {
         );
       })}
 
-      <LinkBox>
-        <Link href="https://brood.raidguild.org/" linkType="external">
-          More Info
-        </Link>
-        <Link
-          href={`https://admin.daohaus.club/#/molochv3/${
-            TARGET_DAO[import.meta.env.VITE_TARGET_KEY].CHAIN_ID
-          }/${TARGET_DAO[import.meta.env.VITE_TARGET_KEY].ADDRESS}`}
-          linkType="external"
-        >
-          Raid Brood DAO
-        </Link>
-      </LinkBox>
+      <InfoLinks />
     </SingleColumnLayout>
   );
 };

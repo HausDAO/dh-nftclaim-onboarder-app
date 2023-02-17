@@ -1,10 +1,19 @@
-import { DHLayout, useDHConnect } from "@daohaus/connect";
+import styled from "styled-components";
+
+import { useDHConnect } from "@daohaus/connect";
 import { HAUS_RPC } from "@daohaus/keychain-utils";
 import { TXBuilder } from "@daohaus/tx-builder";
-import { H1, H4 } from "@daohaus/ui";
 import { Outlet, useLocation } from "react-router-dom";
 import { useDao } from "../hooks/useDao";
 import { TARGET_DAO } from "../targetDao";
+import { Footer } from "@daohaus/ui";
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 export function HomeContainer() {
   const location = useLocation();
@@ -15,11 +24,7 @@ export function HomeContainer() {
   });
 
   return (
-    <DHLayout
-      pathname={location.pathname}
-      navLinks={[{ label: "Home", href: `/` }]}
-      leftNav={<H4>{dao?.name}</H4>}
-    >
+    <PageContainer>
       <TXBuilder
         provider={provider}
         chainId={TARGET_DAO[import.meta.env.VITE_TARGET_KEY].CHAIN_ID}
@@ -45,7 +50,8 @@ export function HomeContainer() {
       >
         <Outlet />
       </TXBuilder>
-    </DHLayout>
+      <Footer />
+    </PageContainer>
   );
 }
 

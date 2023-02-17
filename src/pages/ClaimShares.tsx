@@ -1,24 +1,13 @@
-import {
-  Card,
-  DataSm,
-  H1,
-  H2,
-  H4,
-  Link,
-  ParMd,
-  ParSm,
-  ParXl,
-  SingleColumnLayout,
-} from "@daohaus/ui";
+import { Card, DataSm, H2, H4, ParSm } from "@daohaus/ui";
 import styled from "styled-components";
 import { Claim } from "../components/Claim";
 import redPilImage from "../assets/logo_footer_vgaciq.svg";
-import redPilLogo from "../assets/redpil-logo.png";
 
 import { useDHConnect } from "@daohaus/connect";
 import { useAccountNfts } from "../hooks/useAccountNfts";
 import { TARGET_DAO } from "../targetDao";
 import { useParams } from "react-router-dom";
+import { InfoLinks } from "../components/InfoLinks";
 
 const ImageContainer = styled.div`
   display: flex;
@@ -61,6 +50,7 @@ const CardGuts = styled.div`
   justify-content: center;
   text-align: center;
   gap: 3rem;
+  margin-bottom: 3rem;
 `;
 
 const cardWidth = "80rem";
@@ -77,28 +67,15 @@ export const ClaimShares = () => {
     shamanAddress: nftClaimer,
   });
 
-  console.log("nfts", nfts);
-
   const handleSuccess = () => {
     console.log("success");
   };
 
+  if (!nftClaimer) return null;
+
   return (
     <CardContainer>
-      <Card width={cardWidth}>
-        <CardContent>
-          <ImageContainer>
-            <div className="img-block">
-              <img src={redPilLogo} />
-            </div>
-          </ImageContainer>
-          <H4>1. Drink Red Pil</H4>
-          <ParSm>
-            If the Jamaica Red Ale of a black velvet greedily teaches a soggy
-            Busch, then a keg trembles
-          </ParSm>
-        </CardContent>
-      </Card>
+      <H2 style={{ marginBottom: "2.4rem" }}>Join Raid Brood</H2>
 
       <Card width={cardWidth}>
         <CardContent>
@@ -107,30 +84,21 @@ export const ClaimShares = () => {
               <img src={redPilImage} />
             </div>
           </ImageContainer>
-          <H4>2. Claim Your Red Pil NFT</H4>
+          <H4>1. Drink {CLAIMER_DATA[nftClaimer].name}</H4>
           <CardGuts>
             <ParSm>
               When an Amarillo Pale Ale takes a coffee break, an often
               radioactive Bacardi Silver hides
             </ParSm>
-            <Link
-              href="https://brood.raidguild.org/redpill"
-              linkType="external"
-            >
-              Claim NFT Here
-            </Link>
           </CardGuts>
-        </CardContent>
-      </Card>
-
-      <Card width={cardWidth}>
-        <CardContent>
-          <ImageContainer>
-            <div className="img-block">
-              <img src={redPilImage} />
-            </div>
-          </ImageContainer>
-          <H4>2. Get Your DAO Shares</H4>
+          <H4>2. Claim Your Proof of Drink NFT</H4>
+          <CardGuts>
+            <ParSm>
+              When an Amarillo Pale Ale takes a coffee break, an often
+              radioactive Bacardi Silver hides
+            </ParSm>
+          </CardGuts>
+          <H4>3. Get Your DAO Shares</H4>
           <CardGuts>
             <ParSm>
               A monkey bite over a chain saw eats a slurly hammered Full Sail
@@ -148,6 +116,8 @@ export const ClaimShares = () => {
           </CardGuts>
         </CardContent>
       </Card>
+
+      <InfoLinks />
     </CardContainer>
   );
 };

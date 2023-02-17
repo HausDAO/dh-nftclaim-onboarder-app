@@ -2,6 +2,7 @@ import { ValidNetwork } from "@daohaus/keychain-utils";
 
 export type NftClaimer = {
   name: string;
+  description: string;
   nftAddress: string;
   shaman: string;
 };
@@ -20,17 +21,20 @@ export const TARGET_DAO: {
     CHAIN_ID: "0x5",
     NFT_CLAMIERS: {
       "0xaA5DC030FE06fAd5A2152d430696F66F6B4582f2": {
-        name: "Red Pil",
+        name: "Red Pils",
+        description: "A beautiful straw blond crusher of a brew",
         nftAddress: "0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
         shaman: "0xaA5DC030FE06fAd5A2152d430696F66F6B4582f2",
       },
       "0x02": {
         name: "Spork and Sour",
+        description: "Fruited Sour",
         nftAddress: "0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
         shaman: "0x02",
       },
       "0x03": {
-        name: "Green Pil",
+        name: "Green Pils",
+        description: "Italian Style Kveik Pilsner",
         nftAddress: "0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
         shaman: "0x03",
       },
