@@ -8,8 +8,6 @@ import { HAUS_RPC } from "@daohaus/keychain-utils";
 import { TARGET_DAO } from "../targetDao";
 import NFT_CLAIMER_ABI from "../abis/NFTClaimerShaman.json";
 
-console.log("NFT_CLAIMER_ABI", NFT_CLAIMER_ABI);
-
 const API_URL =
   TCR_GRAPH_URL[TARGET_DAO[import.meta.env.VITE_TARGET_KEY].CHAIN_ID];
 

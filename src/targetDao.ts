@@ -26,11 +26,11 @@ export const TARGET_DAO: {
         nftAddress: "0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
         shaman: "0xaA5DC030FE06fAd5A2152d430696F66F6B4582f2",
       },
-      "0x02": {
+      "0x3521923550b1b99a75adf75970e109254ed4e34d": {
         name: "Spork and Sour",
         description: "Fruited Sour",
-        nftAddress: "0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
-        shaman: "0x02",
+        nftAddress: "0xc5550ff6d3f5761de8d9c0083c0075cb5e53d4fd",
+        shaman: "0x3521923550b1b99a75adf75970e109254ed4e34d",
       },
       "0x03": {
         name: "Green Pils",

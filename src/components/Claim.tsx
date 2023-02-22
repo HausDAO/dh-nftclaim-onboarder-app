@@ -27,14 +27,10 @@ export const Claim = ({
   const { errorToast, defaultToast, successToast } = useToast();
   const [isLoading, setIsLoading] = React.useState(false);
 
-  console.log("tokenIds", tokenIds);
-
   const { claims } = useNftClaimStatus({
     shamanAddress,
     tokenIds,
   });
-
-  console.log("claims", claims);
 
   const unclaimedIds = tokenIds.reduce((acc: string[], id: string) => {
     if (claims[id] === "0") {
@@ -42,8 +38,6 @@ export const Claim = ({
     }
     return acc;
   }, []);
-
-  console.log("unclaimedIds", unclaimedIds);
 
   const handleClaim = () => {
     setIsLoading(true);

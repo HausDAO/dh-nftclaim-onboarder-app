@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { useDHConnect } from "@daohaus/connect";
+import { useDHConnect, DaoHausNav } from "@daohaus/connect";
 import { HAUS_RPC } from "@daohaus/keychain-utils";
 import { TXBuilder } from "@daohaus/tx-builder";
 import { Outlet, useLocation } from "react-router-dom";
@@ -15,8 +15,13 @@ const PageContainer = styled.div`
   justify-content: center;
 `;
 
+const NavContainer = styled.div`
+  width: 100%;
+  text-align: right;
+  padding: 2.6rem 3rem;
+`;
+
 export function HomeContainer() {
-  const location = useLocation();
   const { provider, address } = useDHConnect();
   const { dao } = useDao({
     daoId: TARGET_DAO[import.meta.env.VITE_TARGET_KEY].ADDRESS,
@@ -48,6 +53,9 @@ export function HomeContainer() {
           "0x1": import.meta.env.VITE_GRAPH_API_KEY_MAINNET,
         }}
       >
+        <NavContainer>
+          <DaoHausNav />
+        </NavContainer>
         <Outlet />
       </TXBuilder>
       <Footer />
