@@ -1,0 +1,59 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_template", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "moloch",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "claimer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "isShares",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "perNft",
+        "type": "uint256"
+      }
+    ],
+    "name": "SummonComplete",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_moloch", "type": "address" },
+      { "internalType": "address", "name": "_nftAddress", "type": "address" },
+      { "internalType": "bool", "name": "_isShares", "type": "bool" },
+      { "internalType": "uint256", "name": "_perNft", "type": "uint256" }
+    ],
+    "name": "summonNFTClaimer",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "template",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

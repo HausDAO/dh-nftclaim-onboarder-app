@@ -26,17 +26,17 @@ export const TARGET_DAO: {
         nftAddress: "0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
         shaman: "0xaA5DC030FE06fAd5A2152d430696F66F6B4582f2",
       },
-      "0x3521923550b1b99a75adf75970e109254ed4e34d": {
+      "0xd13b5309f3b6a54664db8c273ba314e6cd26c716": {
         name: "Spork and Sour",
         description: "Fruited Sour",
-        nftAddress: "0xc5550ff6d3f5761de8d9c0083c0075cb5e53d4fd",
-        shaman: "0x3521923550b1b99a75adf75970e109254ed4e34d",
+        nftAddress: "0xbc0f3dc298d1c319d6865ceb3b12bbc6aaf5f89e",
+        shaman: "0xd13b5309f3b6a54664db8c273ba314e6cd26c716",
       },
-      "0x03": {
+      "0x63da3a1cf582e40f7b369c120e6c997c20e93b7a": {
         name: "Green Pils",
         description: "Italian Style Kveik Pilsner",
-        nftAddress: "0xf294588CC8DBAE15230a726F0f93487eB0fcF25D",
-        shaman: "0x03",
+        nftAddress: "0x6D6eF9e8eEa0C37e41e0442C2797F17c8476bEec",
+        shaman: "0x63da3a1cf582e40f7b369c120e6c997c20e93b7a",
       },
     },
   },
