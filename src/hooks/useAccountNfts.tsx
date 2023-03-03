@@ -72,6 +72,7 @@ export const useAccountNfts = ({
   );
 
   return {
+    // @ts-expect-error
     nfts: data?.tokens,
     ...rest,
   };
