@@ -1,4 +1,4 @@
-import { Card, DataSm, H2, H4, ParSm } from "@daohaus/ui";
+import { Card, DataSm, H2, H4, ParSm, Spinner } from "@daohaus/ui";
 import styled from "styled-components";
 import { Claim } from "../components/Claim";
 import redPilImage from "../assets/logo_footer_vgaciq.svg";
@@ -61,7 +61,7 @@ export const ClaimShares = () => {
   const { address } = useDHConnect();
   const { nftClaimer } = useParams();
 
-  const { nfts } = useAccountNfts({
+  const { nfts, isLoading } = useAccountNfts({
     nftAddress: nftClaimer && CLAIMER_DATA[nftClaimer].nftAddress,
     accountAddress: address,
     shamanAddress: nftClaimer,
@@ -111,7 +111,10 @@ export const ClaimShares = () => {
                 onSuccess={handleSuccess}
               />
             ) : (
-              <DataSm>You don't hold any nfts</DataSm>
+              <>
+                {isLoading && <Spinner />}
+                {!isLoading && <DataSm>You don't hold any nfts</DataSm>}
+              </>
             )}
           </CardGuts>
         </CardContent>

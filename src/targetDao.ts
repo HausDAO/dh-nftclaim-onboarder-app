@@ -15,28 +15,28 @@ export const TARGET_DAO: {
     NFT_CLAMIERS: { [key: string]: NftClaimer };
   };
 } = {
-  "0xe160ba2cb286888d54cf51a8b3fc01ecce8ccb44": {
-    ADDRESS: "0xe160ba2cb286888d54cf51a8b3fc01ecce8ccb44",
-    SAFE_ADDRESS: "0xcfbda71c58d9864e196f21b8530d7a4a66a0eda0",
+  "0xc17f71ecd0c9d8a5ecc455c56ec553d14505d769": {
+    ADDRESS: "0xc17f71ecd0c9d8a5ecc455c56ec553d14505d769",
+    SAFE_ADDRESS: "0x96b0d2077f740c861cc7ed322ae20153ea80da74",
     CHAIN_ID: "0x64",
     NFT_CLAMIERS: {
-      "0x29e682AF081caF314df5B9CFD1f78Eb23c2Fc456": {
+      "0x621856d6422b231e320299dc609bc36cd1b0b604": {
         name: "Red Pil",
         description: "A beautiful straw blond crusher of a brew",
         nftAddress: "0x018A869ee8Ba15002d0B025eeb3c776142091f97",
-        shaman: "0x29e682AF081caF314df5B9CFD1f78Eb23c2Fc456",
+        shaman: "0x621856d6422b231e320299dc609bc36cd1b0b604",
       },
-      "0xd13b5309f3b6a54664db8c273ba314e6cd26c716": {
+      "0x3d8a079b9f4c6431c93c030e62deda0d1f962d9b": {
         name: "Spork and Sour",
         description: "Fruited Sour",
         nftAddress: "0xbc0f3dc298d1c319d6865ceb3b12bbc6aaf5f89e",
-        shaman: "0xd13b5309f3b6a54664db8c273ba314e6cd26c716",
+        shaman: "0x3d8a079b9f4c6431c93c030e62deda0d1f962d9b",
       },
-      "0x63da3a1cf582e40f7b369c120e6c997c20e93b7a": {
+      "0xc9598b1680fc26a3a3b44a57b01934253a52ec5c": {
         name: "Green Pil",
         description: "Italian Style Kveik Pilsner",
         nftAddress: "0x6D6eF9e8eEa0C37e41e0442C2797F17c8476bEec",
-        shaman: "0x63da3a1cf582e40f7b369c120e6c997c20e93b7a",
+        shaman: "0xc9598b1680fc26a3a3b44a57b01934253a52ec5c",
       },
     },
   },
