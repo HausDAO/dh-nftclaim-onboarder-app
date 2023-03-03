@@ -20,23 +20,23 @@ export const TARGET_DAO: {
     SAFE_ADDRESS: "0x96b0d2077f740c861cc7ed322ae20153ea80da74",
     CHAIN_ID: "0x64",
     NFT_CLAMIERS: {
-      "0x621856d6422b231e320299dc609bc36cd1b0b604": {
+      "0xca6f82da209b20271493969a53facf513007416": {
         name: "Red Pil",
         description: "A beautiful straw blond crusher of a brew",
         nftAddress: "0x018A869ee8Ba15002d0B025eeb3c776142091f97",
-        shaman: "0x621856d6422b231e320299dc609bc36cd1b0b604",
+        shaman: "0xca6f82da209b20271493969a53facf513007416",
       },
-      "0x3d8a079b9f4c6431c93c030e62deda0d1f962d9b": {
+      "0xc5134E012ED3861db640fF00E680B0Ad5C7d425e": {
         name: "Spork and Sour",
         description: "Fruited Sour",
         nftAddress: "0xbc0f3dc298d1c319d6865ceb3b12bbc6aaf5f89e",
-        shaman: "0x3d8a079b9f4c6431c93c030e62deda0d1f962d9b",
+        shaman: "0xc5134E012ED3861db640fF00E680B0Ad5C7d425e",
       },
-      "0xc9598b1680fc26a3a3b44a57b01934253a52ec5c": {
+      "0x84008dbc89af882db4a44624034c3f4bc1994a18": {
         name: "Green Pil",
         description: "Italian Style Kveik Pilsner",
         nftAddress: "0x6D6eF9e8eEa0C37e41e0442C2797F17c8476bEec",
-        shaman: "0xc9598b1680fc26a3a3b44a57b01934253a52ec5c",
+        shaman: "0x84008dbc89af882db4a44624034c3f4bc1994a18",
       },
     },
   },
