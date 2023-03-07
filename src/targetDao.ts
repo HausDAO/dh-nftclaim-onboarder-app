@@ -20,11 +20,11 @@ export const TARGET_DAO: {
     SAFE_ADDRESS: "0x96b0d2077f740c861cc7ed322ae20153ea80da74",
     CHAIN_ID: "0x64",
     NFT_CLAMIERS: {
-      "0xca6f82da209b20271493969a53facf513007416": {
+      "0x0ca6f82da209b20271493969a53facf513007416": {
         name: "Red Pil",
         description: "A beautiful straw blond crusher of a brew",
         nftAddress: "0x018A869ee8Ba15002d0B025eeb3c776142091f97",
-        shaman: "0xca6f82da209b20271493969a53facf513007416",
+        shaman: "0x0ca6f82da209b20271493969a53facf513007416",
       },
       "0xc5134E012ED3861db640fF00E680B0Ad5C7d425e": {
         name: "Spork and Sour",
