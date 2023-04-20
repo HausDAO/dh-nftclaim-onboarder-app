@@ -86,23 +86,20 @@ export const ClaimShares = () => {
           </ImageContainer>
           <H4>1. Drink {CLAIMER_DATA[nftClaimer].name}</H4>
           <CardGuts>
-            <ParSm>
-              When an Amarillo Pale Ale takes a coffee break, an often
-              radioactive Bacardi Silver hides
-            </ParSm>
+            <ParSm>Did you find a can? Drink that sucker!</ParSm>
           </CardGuts>
           <H4>2. Claim Your Proof of Drink NFT</H4>
           <CardGuts>
             <ParSm>
-              When an Amarillo Pale Ale takes a coffee break, an often
-              radioactive Bacardi Silver hides
+              Find the QR code on that empty can. You might need to peel off a
+              label!
             </ParSm>
           </CardGuts>
           <H4>3. Get Your DAO Shares</H4>
           <CardGuts>
             <ParSm>
-              A monkey bite over a chain saw eats a slurly hammered Full Sail
-              IPA
+              Did you get the NFT? You should be able to claim a DAO share.
+              Welcome to Web3 brewing!
             </ParSm>
             {nftClaimer && nfts?.length ? (
               <Claim
