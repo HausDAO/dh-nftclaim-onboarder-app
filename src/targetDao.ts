@@ -38,6 +38,12 @@ export const TARGET_DAO: {
         nftAddress: "0x6D6eF9e8eEa0C37e41e0442C2797F17c8476bEec",
         shaman: "0x84008dbc89af882db4a44624034c3f4bc1994a18",
       },
+      "0x9568ad7d722b75b303c823ed8dc2129f6c66e65c": {
+        name: "Seoul Bound",
+        description: "Korean Rice Wine",
+        nftAddress: "0x7C8233390e4edA574cf9bf018B598aFa8CF6993a",
+        shaman: "0x9568ad7d722b75b303c823ed8dc2129f6c66e65c",
+      },
     },
   },
 };
